@@ -113,3 +113,22 @@ kubectl get nodes
 
 
 ipdocker 192.168.2.24/24
+ipdocker 192.168.2.23/24
+
+
+
+kubectl apply -f k8s/deployment.yaml
+
+
+
+erros validating 'k8s/deployment.yaml' erro validating data: failed to donwload openai
+
+
+
+
+k3d cluster create meucluster
+kubectl get nodes
+k3d cluster list
+docker container ls
+
+kubectl api-resources
