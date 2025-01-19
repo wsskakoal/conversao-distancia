@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversao-distancia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: conversao-distancia
+  template:
+    metadata:
+      matchLabels:
+        app: conversao-distancia
+        spec:
+          containers:
+          - name: conversao-distancia
+            image: wylliank/conversao-distancia:v1
+            ports:
+              - containerPort: 5000
+

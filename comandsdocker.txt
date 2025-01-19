@@ -32,3 +32,84 @@ docker image rm -f $(docker image ls -q)
 
 // Usar a imagem online
 docker container run -d -p 8080:5000 wylliank/conversao-distancia:v1
+
+
+
+** DEFINIÇÕES IMPORTANTES: ** 
+
+O que é um Proxy?
+
+Um proxy é como um intermediário entre você (ou sua aplicação) e outros servidores. Ele funciona assim:
+Quando você faz uma solicitação para acessar algo na internet (como um site), o proxy recebe essa solicitação.
+O proxy, então, encaminha o pedido ao servidor correto.
+Quando o servidor responde, o proxy entrega a resposta de volta para você.
+
+O que é um Load Balancer?
+
+Um load balancer (ou balanceador de carga) é como um gerente que distribui tarefas para várias pessoas em uma equipe para garantir que ninguém fique sobrecarregado.
+No contexto de sistemas:
+Ele distribui as solicitações dos usuários entre vários servidores.
+Isso garante que o sistema continue rápido e disponível, mesmo que muitos usuários o acessem ao mesmo tempo.
+
+
+
+** Comandos importantes **
+
+// Install
+choco install kubernetes-cli
+choco install k3d
+
+// Create
+k3d cluster create 
+k3d cluster create meucluster --servers 3 --agents 3
+
+// Listar
+kubectl get nodes
+k3d cluster list
+
+// Delete
+k3d cluster delete meucluster
+
+kubectl api-resources
+
+
+
+
+** Componentes **
+
+Pod - menor objeto 
+replicaset - controlador do pod
+deployment - gerenciamento de replicaset
+service - expor os pods
+
+
+
+
+instalando kubernetes no linux servers
+
+// Instalar o docker
+sudo apt install docker.io
+
+sudo usermod -aG docker $USER
+
+sudo reboot
+docker --version
+docker run hello-world
+
+
+
+// Instaler o kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x kubectl
+sudo mv kubectl /usr/local/bin/
+kubectl version --client
+
+// Instalaer o k3d
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+k3d version
+k3d cluster create meu-cluster --servers 3 --agents 3
+kubectl get nodes
+
+
+
+ipdocker 192.168.2.24/24
