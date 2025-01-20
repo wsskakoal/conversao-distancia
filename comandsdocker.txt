@@ -132,3 +132,20 @@ k3d cluster list
 docker container ls
 
 kubectl api-resources
+
+
+
+
+sudp snap install docker
+sudo snap install git
+sudo snap install curl
+
+
+
+
+
+
+k3d cluster delete meucluster
+
+// bind de porta 
+k3d cluster create meucluster --servers 1 --agents 2 -p "8080:30000@loadbalancer"
