@@ -17,4 +17,14 @@ spec:
         image: wylliank/conversao-distancia:v1
         ports:
           - containerPort: 5000
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: conversao-distancia
+spec:
+  selector: 
+    app: conversao-distancia
+  ports:
+  - port: 80
+    targetPort: 5000
