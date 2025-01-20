@@ -149,3 +149,16 @@ k3d cluster delete meucluster
 
 // bind de porta 
 k3d cluster create meucluster --servers 1 --agents 2 -p "8080:30000@loadbalancer"
+
+docker build -t wylliank/conversao-distancia:v2 --push .
+
+
+
+// Mostrar versões anteriores
+kubectl rollout history deployment conversao-distancia
+
+// Rowback de versao
+kubectl rollout undo deployment conversao-distancia && watch 'kubect get pod'
+
+// Apply com watch
+kubectl apply -f k8s/deployment.yaml && watch 'kubectl get pod,deployment,replicaset'

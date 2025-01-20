@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: conversao-distancia
-        image: wylliank/conversao-distancia:v1
+        image: wylliank/conversao-distancia:v2
         ports:
           - containerPort: 5000
 ---
